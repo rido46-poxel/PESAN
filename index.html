@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pesan Sekarang - WhatsApp</title>
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+  }
+
+  body {
+    background: linear-gradient(135deg, #fff5f0 0%, #ffe0d3 100%);
+    min-height: 100vh;
+    padding: 14px;
+  }
+
+  .container {
+    max-width: 900px;      /* lebih lebar */
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  /* ===== JUDUL ===== */
+  .header {
+    margin-bottom: 14px;
+  }
+  .header h1 {
+    color: #d84315;
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 6px;
+  }
+  .header p {
+    color: #7a5a4a;
+    font-size: 13.5px;
+  }
+
+  /* ===== GAMBAR BESAR KLIK ===== */
+  .banner {
+    display: block;
+    position: relative;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 12px 34px rgba(216, 67, 21, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+  }
+  .banner:hover,
+  .banner:active {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 20px 44px rgba(216, 67, 21, 0.42);
+  }
+
+  /* GAMBAR: LEBAR PENUH, TINGGI BESAR */
+  .banner img {
+    width: 100%;
+    height: auto;
+    min-height: 480px;      /* tinggi minimal di desktop */
+    max-height: 85vh;       /* maksimal 85% tinggi layar */
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+  .banner:hover img {
+    transform: scale(1.04);
+  }
+
+  /* ===== OVERLAY TOMBOL DI ATAS GAMBAR ===== */
+  .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.75), transparent);
+    padding: 60px 20px 22px;
+    text-align: center;
+  }
+  .overlay .btn-wa {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #25D366;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 15px 38px;
+    border-radius: 50px;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.65);
+    animation: pulse 2s infinite;
+  }
+  .overlay .btn-wa::before {
+    content: "💬";
+    font-size: 20px;
+  }
+
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 6px 20px rgba(37, 211, 102, 0.65); }
+    50%      { box-shadow: 0 6px 30px rgba(37, 211, 102, 1); }
+  }
+
+  /* ===== CATATAN DI BAWAH ===== */
+  .footer {
+    margin-top: 18px;
+    font-size: 13px;
+    color: #a08070;
+    line-height: 1.6;
+  }
+
+  /* ===== RESPONSIF HP ===== */
+  @media (max-width: 600px) {
+    body { padding: 10px; }
+    .header h1 { font-size: 19px; }
+    .header p { font-size: 12.5px; }
+    .banner img {
+      min-height: auto;
+      max-height: none;
+      height: auto;         /* gambar otomatis penuh, tidak dipotong */
+    }
+    .overlay { padding: 44px 14px 16px; }
+    .overlay .btn-wa {
+      font-size: 15px;
+      padding: 12px 26px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="header">
+    <h1>🍽️ Pesan Sekarang</h1>
+    <p>Klik gambar di bawah untuk langsung pesan via WhatsApp</p>
+  </div>
+
+  <!-- =============================================
+       GAMBAR BESAR — KLIK = BUKA WHATSAPP
+       GANTI:
+       1. nama file "menu.jpg" → foto Anda
+       2. nomor "6282325946130" → nomor WA Anda
+       3. teks pesan setelah %3A → pesan otomatis
+  ============================================== -->
+  <a class="banner"
+     href="https://wa.me/6281234567890?text=Halo%20saya%20mau%20pesan%20mie%20%3A%20*ayam%20Lengkap*%20%5BRp%2010.000%5D"
+     target="_blank"
+     rel="noopener">
+
+    <img src="menu.jpg" alt="Menu Pemesanan">
+
+    <div class="overlay">
+      <span class="btn-wa">Pesan Sekarang</span>
+    </div>
+  </a>
+
+  <p class="footer">
+    ✨ Klik gambar untuk order langsung via WhatsApp<br>
+    Buka setiap hari • 08.00 – 11.00 WIB
+  </p>
+
+</div>
+
+</body>
+</html>
